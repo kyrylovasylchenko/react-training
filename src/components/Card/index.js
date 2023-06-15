@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Card.module.scss';
 
 
@@ -5,8 +6,12 @@ import styles from './Card.module.scss';
 
 const Card = (props) => {
 
-    const onClickBtn = () => {
-        alert(props.title);
+    const [isAdded, setIsAdded] = React.useState(false);
+
+
+
+    const onClickAdd = () => {
+        setIsAdded(!isAdded)
     }
 
     return (
@@ -21,9 +26,9 @@ const Card = (props) => {
                     <span>Price:</span>
                     <b>{props.price} usd</b>
                 </div>
-                <button className="button" onClick={onClickBtn}>
-                    <img width={11} height={11} src="/img/addIcon.svg" alt="Add" />
-                </button>
+            
+                    <img className={styles.add} onClick={onClickAdd} src={isAdded ? "/img/btn-checked.svg" : "/img/addIcon.svg"} alt="Add" />
+                
             </div>
 
         </div>

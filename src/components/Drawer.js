@@ -1,9 +1,9 @@
-const Drawer = () => {
+const Drawer = (props) => {
   return (
-    <div style={{display: 'none'}} className="overlay">
+    <div className="overlay">
       <div className="drawer">
         <h2 className="mb-30 justify-between d-flex">Cart
-          <img className="removeBtn cu-p" src="/img/btn-remove.svg" alt="Remove" /></h2>
+          <img className="removeBtn cu-p" src="/img/btn-remove.svg" alt="Close" onClick={props.onClose} /></h2>
 
 
         <div className="items">

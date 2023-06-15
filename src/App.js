@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
@@ -8,12 +9,16 @@ const arr = [{ title: 'Nike air Jordan 11', price: 110, img:"/img/sneakers/1.jpg
              { title: 'Nike pegasus', price: 90, img:"/img/sneakers/3.jpg"}]
 
 function App() {
+
+  const [isCartOpen, setCartOpen] = React.useState(false);
+
+
   return (
     <div className="wrapper clear">
 
-      <Drawer />
+      {isCartOpen && <Drawer onClose={() => setCartOpen(false)}/>}
 
-      <Header />
+      <Header onClickCart={() => setCartOpen(true)}/>
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
           <h1>All shose</h1>
